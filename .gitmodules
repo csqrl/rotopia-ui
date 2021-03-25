@@ -1,0 +1,12 @@
+[submodule "packages/Roact"]
+	path = packages/Roact
+	url = https://github.com/Roblox/roact/
+[submodule "packages/Flipper"]
+	path = packages/Flipper
+	url = https://github.com/Reselim/Flipper
+[submodule "packages/Llama"]
+	path = packages/Llama
+	url = https://github.com/Frelerik/llama
+[submodule "packages/RoactRouter"]
+	path = packages/RoactRouter
+	url = https://github.com/Reselim/roact-router

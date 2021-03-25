@@ -1,0 +1,47 @@
+{
+  "name": "rotopia-ui",
+
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+
+      "Client": {
+        "$className": "Folder",
+        "$ignoreUnknownInstances": true,
+
+        "Interface": {
+          "$className": "Folder",
+          "$path": "src",
+
+          "Packages": {
+            "$className": "Folder",
+
+            "Flipper": {
+              "$path": "packages/Flipper/src"
+            },
+
+            "Llama": {
+              "$path": "packages/Llama/src",
+
+              "t": {
+                "$path": "packages/Llama/modules/t"
+              }
+            },
+
+            "Roact": {
+              "$path": "packages/Roact/src"
+            },
+
+            "RoactRouter": {
+              "$path": "packages/RoactRouter/src"
+            }
+          }
+        }
+      }
+    }
+  }
+}

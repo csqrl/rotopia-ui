@@ -1,0 +1,6 @@
+{
+    "rojo.releaseBranch": "7.x",
+    "Lua.diagnostics.disable": [
+        "redefined-local"
+    ]
+}
