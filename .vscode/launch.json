@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "command": "open-cli TestPlace.rbxl --wait && exit",
+            "command": "npx open-cli TestPlace.rbxl --wait && exit",
             "name": "Open TestPlace",
             "request": "launch",
             "type": "node-terminal"
