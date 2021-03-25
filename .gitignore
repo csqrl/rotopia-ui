@@ -4,3 +4,8 @@ roblox.toml
 *.rbxlx
 *.rbxm
 *.rbxmx
+*.rbxl.lock
+*.rbxlx.lock
+
+# Exceptions
+!/TestPlace.rbxl
