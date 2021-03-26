@@ -4,16 +4,16 @@ local Packages = Components.Parent.Packages
 local Roact = require(Packages.Roact)
 local RoactRouter = require(Packages.RoactRouter)
 
-local Theming = require(Components.Theming)
+local Styles = require(Components.Parent.Styles)
 local NavButton = require(script.NavButton)
 
 local e = Roact.createElement
 
 return function()
-	return Theming.useTheme(function(theme)
+	return Styles.ThemeProvider.withTheme(function(theme)
 		return e("Frame", {
 			BackgroundTransparency = 1,
-			Size = UDim2.new(1, 0, 0, 36),
+			Size = UDim2.new(1, 0, 0, theme.spacing(4.5)),
 		}, {
 			e("UIPadding", { PaddingLeft = UDim.new(0, 104) }),
 
@@ -22,16 +22,16 @@ return function()
 					return e("ImageButton", {
 						AnchorPoint = Vector2.new(1, 0),
 						AutoButtonColor = false,
-						BackgroundColor3 = Color3.new(1, 1, 1),
+						BackgroundColor3 = theme.background.default,
 						Position = UDim2.fromScale(1, 0),
-						Size = UDim2.fromOffset(36, 36),
+						Size = UDim2.fromOffset(theme.spacing(4.5), theme.spacing(4.5)),
 						Image = "",
 
 						[Roact.Event.MouseButton1Click] = function()
 							routing.history:goBack()
 						end,
 					}, {
-						e("UICorner", { CornerRadius = UDim.new(0, 8) }),
+						e("UICorner", { CornerRadius = UDim.new(0, theme.borderRadius.default) }),
 
 						e("UIPadding", {
 							PaddingBottom = UDim.new(0, 2),
@@ -41,10 +41,10 @@ return function()
 						}),
 
 						e("Frame", {
-							BackgroundColor3 = theme.Accent,
+							BackgroundColor3 = theme.primary.main,
 							Size = UDim2.fromScale(1, 1),
 						}, {
-							e("UICorner", { CornerRadius = UDim.new(0, 6) }),
+							e("UICorner", { CornerRadius = UDim.new(0, theme.borderRadius.default - 2) }),
 
 							e("ImageLabel", {
 								AnchorPoint = Vector2.new(.5, .5),
@@ -52,7 +52,7 @@ return function()
 								Position = UDim2.fromScale(.5, .5),
 								Size = UDim2.fromScale(.75, .75),
 								Image = "rbxassetid://6031094678",
-								ImageColor3 = Color3.new(1, 1, 1),
+								ImageColor3 = theme.common.white,
 								ScaleType = Enum.ScaleType.Fit,
 							}),
 						}),
@@ -62,11 +62,11 @@ return function()
 
 			NavigationContainer = e("ImageButton", {
 				AutoButtonColor = false,
-				BackgroundColor3 = Color3.new(1, 1, 1),
-				Size = UDim2.new(1, -44, 1, 0),
+				BackgroundColor3 = theme.background.default,
+				Size = UDim2.new(1, -(theme.spacing(4.5) + theme.spacing(1)), 1, 0),
 				Image = "",
 			}, {
-				e("UICorner", { CornerRadius = UDim.new(0, 8) }),
+				e("UICorner", { CornerRadius = UDim.new(0, theme.borderRadius.default) }),
 
 				e("UIPadding", {
 					PaddingBottom = UDim.new(0, 2),

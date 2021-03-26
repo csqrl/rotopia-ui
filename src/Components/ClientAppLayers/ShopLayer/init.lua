@@ -5,7 +5,8 @@ local Roact: Roact = require(Packages.Roact)
 
 local e = Roact.createElement
 
-local Theming = require(Components.Theming)
+local Styles = require(Components.Parent.Styles)
+
 local AppLayerRoute = require(Components.AppLayers.Route)
 local Slide = require(Components.Transition.Slide)
 local ShieldOverlay = require(Components.Shield.ShieldOverlay)
@@ -14,9 +15,9 @@ local LayerContent = require(script.LayerContent)
 
 return function()
     return AppLayerRoute("/shop", function(routing)
-        return e(Theming.ThemeProvider, {
+        return e(Styles.ThemeProvider.Provider, {
             theme = {
-                Accent = Color3.fromRGB(247, 111, 14),
+                primary = Styles.Colour.Hex.fromHex("#F76F0E"),
             },
         }, {
             ShieldOverlay = e(ShieldOverlay, {
