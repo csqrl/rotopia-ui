@@ -3,9 +3,8 @@ local Packages = Components.Parent.Packages
 
 local Roact: Roact = require(Packages.Roact)
 
+local withTheme = require(Components.Parent.Theme.withTheme)
 local e = Roact.createElement
-
-local Styles = require(Components.Parent.Styles)
 
 local Component = Roact.Component:extend("CoinDisplay")
 
@@ -30,15 +29,15 @@ function Component:render()
 	local xsOffset = 1
 	local baseSize = UDim2.fromOffset(110, 88):Lerp(UDim2.fromOffset(142, 112), xsOffset)
 
-	return Styles.ThemeProvider.withTheme(function(theme)
+	return withTheme(function(theme)
 		return e("ImageButton", {
 			AnchorPoint = Vector2.new(1, 0),
 			BackgroundTransparency = 1,
-			Position = UDim2.new(1, -16, 0, theme.spacing(1)),
+			Position = UDim2.new(1, -16, 0, theme.spacing),
 			Size = baseSize,
 			ClipsDescendants = true,
 			Image = "rbxassetid://6551803737",
-			ImageColor3 = theme.background.default,
+			ImageColor3 = theme.palette.background.default,
 			ImageTransparency = props.transparency,
 
 			[Roact.Event.MouseButton1Click] = props.onClick,
@@ -63,7 +62,7 @@ function Component:render()
 				Size = UDim2.fromScale(.887, .857),
 				ZIndex = 10,
 				Image = "rbxassetid://6551817243",
-				ImageColor3 = theme.background.default,
+				ImageColor3 = theme.palette.background.default,
 				ImageTransparency = props.transparency,
 			}),
 
@@ -74,7 +73,7 @@ function Component:render()
 				Size = UDim2.fromScale(.887, .857),
 				ZIndex = 1,
 				Image = "rbxassetid://6551810103",
-				ImageColor3 = theme.primary.main,
+				ImageColor3 = theme.palette.primary,
 				ImageTransparency = props.transparency,
 			}),
 

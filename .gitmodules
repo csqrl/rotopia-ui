@@ -10,3 +10,9 @@
 [submodule "packages/RoactRouter"]
 	path = packages/RoactRouter
 	url = https://github.com/Reselim/roact-router
+[submodule "packages/InheritedContext"]
+	path = packages/InheritedContext
+	url = https://github.com/ClockworkSquirrel/roact-inheritedcontext
+[submodule "packages/ColourUtils"]
+	path = packages/ColourUtils
+	url = https://github.com/ClockworkSquirrel/colour-utils

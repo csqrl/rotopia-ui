@@ -38,6 +38,14 @@
 
             "RoactRouter": {
               "$path": "packages/RoactRouter/src"
+            },
+
+            "ColourUtils": {
+              "$path": "packages/ColourUtils/src"
+            },
+
+            "InheritedContext": {
+              "$path": "packages/InheritedContext/src"
             }
           }
         }

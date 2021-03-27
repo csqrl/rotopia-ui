@@ -2,10 +2,11 @@ local Components = script.Parent.Parent
 local Packages = Components.Parent.Packages
 
 local Roact: Roact = require(Packages.Roact)
+local ColourUtils = require(Packages.ColourUtils)
 
 local e = Roact.createElement
 
-local Styles = require(Components.Parent.Styles)
+local ThemeProvider = require(Components.Parent.Theme.Provider)
 
 local AppLayerRoute = require(Components.AppLayers.Route)
 local Slide = require(Components.Transition.Slide)
@@ -15,9 +16,11 @@ local LayerContent = require(script.LayerContent)
 
 return function()
     return AppLayerRoute("/shop", function(routing)
-        return e(Styles.ThemeProvider.Provider, {
-            theme = {
-                primary = Styles.Colour.Hex.fromHex("#F76F0E"),
+        return e(ThemeProvider, {
+            value = {
+                palette = {
+                    primary = ColourUtils.Hex.fromHex("#F76F0E"),
+                },
             },
         }, {
             ShieldOverlay = e(ShieldOverlay, {
