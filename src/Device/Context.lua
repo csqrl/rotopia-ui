@@ -7,10 +7,4 @@ local Context = Roact.createContext({
     height = 0,
 })
 
-function Context.withDevice(render)
-    return Roact.createElement(Context.Consumer, {
-        render = render,
-    })
-end
-
 return Context

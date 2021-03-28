@@ -30,4 +30,11 @@ return {
 
         primary = ColourUtils.Hex.fromHex("#FF006A"),
     },
+
+    action = {
+        buttonThreshold = .9,
+        hover = .12,
+        press = .54,
+        disabled = .38,
+    },
 }

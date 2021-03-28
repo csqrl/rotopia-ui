@@ -1,9 +1,9 @@
 local Root = script.Parent.Parent.Parent.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
-local DeviceContext = require(Root.Device.Context)
+local Device = require(Root.Device)
 
-local withTheme = require(Root.Components.Parent.Theme.withTheme)
+local Theme = require(Root.Components.Parent.Theme)
 local e = Roact.createElement
 
 local Component = Roact.Component:extend("CoinDisplay")
@@ -25,11 +25,11 @@ function Component:render()
 
 	local coinsText = tostring(state.coinsValue)
 
-	return DeviceContext.withDevice(function(device)
+	return Device.withDevice(function(device)
 		local xsOffset = math.clamp((device.height - 320) / (375 - 320), 0, 1)
 		local baseSize = UDim2.fromOffset(110, 88):Lerp(UDim2.fromOffset(142, 112), xsOffset)
 
-		return withTheme(function(theme)
+		return Theme.withTheme(function(theme)
 			return e("ImageButton", {
 				AnchorPoint = Vector2.new(1, 0),
 				BackgroundTransparency = 1,

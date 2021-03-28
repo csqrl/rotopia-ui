@@ -4,13 +4,13 @@ local Packages = Components.Parent.Packages
 local Roact = require(Packages.Roact)
 local RoactRouter = require(Packages.RoactRouter)
 
-local withTheme = require(Components.Parent.Theme.withTheme)
+local Theme = require(Components.Parent.Theme)
 local e = Roact.createElement
 
 local NavButton = require(script.NavButton)
 
 return function()
-	return withTheme(function(theme)
+	return Theme.withTheme(function(theme)
 		return e("Frame", {
 			BackgroundTransparency = 1,
 			Size = UDim2.new(1, 0, 0, theme.spacing * 4.5),

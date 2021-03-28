@@ -6,7 +6,7 @@ local ColourUtils = require(Packages.ColourUtils)
 
 local e = Roact.createElement
 
-local ThemeProvider = require(Components.Parent.Theme.Provider)
+local Theme = require(Components.Parent.Theme)
 
 local AppLayerRoute = require(Components.AppLayers.Route)
 local Slide = require(Components.Transition.Slide)
@@ -16,7 +16,7 @@ local LayerContent = require(script.LayerContent)
 
 return function()
     return AppLayerRoute("/shop", function(routing)
-        return e(ThemeProvider, {
+        return e(Theme.Provider, {
             value = {
                 palette = {
                     primary = ColourUtils.Hex.fromHex("#F76F0E"),

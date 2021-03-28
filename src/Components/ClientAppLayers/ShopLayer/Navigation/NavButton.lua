@@ -4,7 +4,7 @@ local Packages = Components.Parent.Packages
 local Roact = require(Packages.Roact)
 local RoactRouter = require(Packages.RoactRouter)
 
-local withTheme = require(Components.Parent.Theme.withTheme)
+local Theme = require(Components.Parent.Theme)
 local e = Roact.createElement
 
 local Component = Roact.Component:extend("NavButton")
@@ -20,7 +20,7 @@ Component.defaultProps = {
 }
 
 function Component:render()
-	return withTheme(function(theme)
+	return Theme.withTheme(function(theme)
 		return e(RoactRouter.Context.Consumer, {
 			render = function(routing)
 				return e("ImageButton", {

@@ -5,11 +5,11 @@ local Root = script.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
 
-local DeviceProvider = require(Root.Device.Provider)
+local Device = require(Root.Device)
 local AppComponent = require(Root.Components.App)
 
 return function()
-    local appRootComponent = Roact.createElement(DeviceProvider, {
+    local appRootComponent = Roact.createElement(Device.Provider, {
         class = "ScreenGui",
 
         props = {
