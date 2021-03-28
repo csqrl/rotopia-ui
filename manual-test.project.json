@@ -1,0 +1,72 @@
+{
+  "name": "rotopia-ui-test",
+
+  "tree": {
+    "$className": "DataModel",
+
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+
+        "RoactClient": {
+          "$path": "test/RoactClient.client.lua"
+        }
+      }
+    },
+
+    "Players": {
+      "$className": "Players",
+
+      "$properties": {
+        "CharacterAutoLoads": false
+      }
+    },
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+
+      "Client": {
+        "$className": "Folder",
+
+        "Interface": {
+          "$className": "Folder",
+          "$path": "src",
+
+          "Packages": {
+            "$className": "Folder",
+
+            "Flipper": {
+              "$path": "packages/Flipper/src"
+            },
+
+            "Llama": {
+              "$path": "packages/Llama/src",
+
+              "t": {
+                "$path": "packages/Llama/modules/t"
+              }
+            },
+
+            "Roact": {
+              "$path": "packages/Roact/src"
+            },
+
+            "RoactRouter": {
+              "$path": "packages/RoactRouter/src"
+            },
+
+            "ColourUtils": {
+              "$path": "packages/ColourUtils/src"
+            },
+
+            "InheritedContext": {
+              "$path": "packages/InheritedContext/src"
+            }
+          }
+        }
+      }
+    }
+  }
+}

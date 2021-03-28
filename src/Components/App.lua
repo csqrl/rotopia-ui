@@ -1,8 +1,8 @@
-local Components = script.Parent
-local Packages = Components.Parent.Packages
+local Root = script.Parent.Parent
+local Components = Root.Components
 
-local Roact: Roact = require(Packages.Roact)
-local ThemeProvider = require(Components.Parent.Theme.Provider)
+local Roact: Roact = require(Root.Packages.Roact)
+local ThemeProvider = require(Root.Theme.Provider)
 
 local LayerRouting = require(Components.AppLayers.Routing)
 
