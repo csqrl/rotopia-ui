@@ -2,10 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Manual Testing",
+            "name": "TestEZ",
             "type": "PowerShell",
             "request": "launch",
-            "script": "${workspaceFolder}/test/manual-test.ps1",
+            "script": "${workspaceFolder}/test/test.ps1",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Launch",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/test/build-launch.ps1",
             "cwd": "${workspaceFolder}"
         }
     ]

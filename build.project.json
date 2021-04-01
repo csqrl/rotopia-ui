@@ -1,21 +1,13 @@
 {
-    "name": "RotopiaUI",
-
+    "name": "rotopia-ui-build",
     "tree": {
         "$className": "DataModel",
-        "$ignoreUnknownInstances": true,
-
         "ReplicatedStorage": {
             "$className": "ReplicatedStorage",
-            "$ignoreUnknownInstances": true,
-
             "Client": {
                 "$className": "Folder",
-                "$ignoreUnknownInstances": true,
-
                 "Interface": {
                     "$path": "src",
-
                     "Packages": {
                         "$className": "Folder",
 
@@ -41,6 +33,21 @@
                             "$path": "packages/RoactRouter/src"
                         }
                     }
+                }
+            }
+        },
+        "Players": {
+            "$className": "Players",
+            "$properties": {
+                "CharacterAutoLoads": false
+            }
+        },
+        "StarterPlayer": {
+            "$className": "StarterPlayer",
+            "StarterPlayerScripts": {
+                "$className": "StarterPlayerScripts",
+                "RoactClient": {
+                    "$path": "test/RoactClient.client.lua"
                 }
             }
         }

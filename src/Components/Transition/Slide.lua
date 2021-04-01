@@ -1,8 +1,7 @@
-local Components = script.Parent.Parent
-local Packages = Components.Parent.Packages
+local Root = script.Parent.Parent.Parent
 
-local Roact: Roact = require(Packages.Roact)
-local Flipper = require(Packages.Flipper)
+local Roact: Roact = require(Root.Packages.Roact)
+local Flipper = require(Root.Packages.Flipper)
 
 local e = Roact.createElement
 

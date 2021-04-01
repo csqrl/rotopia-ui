@@ -16,3 +16,6 @@
 [submodule "packages/ColourUtils"]
 	path = packages/ColourUtils
 	url = https://github.com/ClockworkSquirrel/colour-utils
+[submodule "packages/TestEZ"]
+	path = packages/TestEZ
+	url = https://github.com/Roblox/testez/

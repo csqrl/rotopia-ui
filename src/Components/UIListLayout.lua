@@ -9,6 +9,7 @@ return function(props)
 
     return Theme.withTheme(function(theme)
         local padding = props.Padding
+            or props.padding
             or props.offset and UDim.new(0, theme.spacing * props.offset)
             or UDim.new(0, theme.spacing)
 

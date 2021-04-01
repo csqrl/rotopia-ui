@@ -1,24 +1,15 @@
 {
-    "name": "RotopiaUI",
-
+    "name": "rotopia-ui-test",
     "tree": {
         "$className": "DataModel",
-        "$ignoreUnknownInstances": true,
-
         "ReplicatedStorage": {
             "$className": "ReplicatedStorage",
-            "$ignoreUnknownInstances": true,
-
             "Client": {
                 "$className": "Folder",
-                "$ignoreUnknownInstances": true,
-
                 "Interface": {
                     "$path": "src",
-
                     "Packages": {
                         "$className": "Folder",
-
                         "ColourUtils": {
                             "$path": "packages/ColourUtils/src"
                         },
@@ -42,6 +33,33 @@
                         }
                     }
                 }
+            }
+        },
+        "Players": {
+            "$className": "Players",
+            "$properties": {
+                "CharacterAutoLoads": false
+            }
+        },
+        "StarterPlayer": {
+            "$className": "StarterPlayer",
+            "StarterPlayerScripts": {
+                "$className": "StarterPlayerScripts",
+                "RoactClient": {
+                    "$path": "test/RoactClient.client.lua"
+                }
+            }
+        },
+        "TestService": {
+            "$className": "TestService",
+            "$properties": {
+                "ExecuteWithStudioRun": true
+            },
+            "TestEZ": {
+                "$path": "packages/TestEZ/src"
+            },
+            "TestRunner": {
+                "$path": "test/test-runner.server.lua"
             }
         }
     }
