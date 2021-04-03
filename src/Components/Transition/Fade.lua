@@ -66,7 +66,7 @@ function Component:render()
 		return nil
 	end
 
-	local children = Llama.Dictionary.map(self.props[Roact.Children], function(child)
+	local children = Llama.Dictionary.map(self.props[Roact.Children] or {}, function(child)
 		local newProps = Llama.Dictionary.merge(child.props, {
 			transparency = transparency
 		})

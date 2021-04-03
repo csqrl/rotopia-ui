@@ -8,38 +8,23 @@ local e = Roact.createElement
 local Component = Roact.Component:extend("TransitionSlide")
 
 Component.defaultProps = {
-	direction = "up",
+	direction = "up", -- "up" | "right" | "down" | "left" | "custom"
 
-	show = false,
-	transitionOnMount = true,
-	unmount = true,
+	show = false, --boolean
+	transitionOnMount = true, -- boolean
+	unmount = true, -- boolean
 
-	size = UDim2.fromScale(1, 1),
-	zindex = nil,
+	size = UDim2.fromScale(1, 1), -- UDim2
+	showPosition = UDim2.new(), -- UDim2
+	showAnchor = Vector2.new(), -- Vector2
+	zindex = nil, -- number
 
-	springFrequency = 5,
-	springDamping = 1,
+	springFrequency = 5, -- number
+	springDamping = 1, -- number
+
+	hidePosition = nil, -- UDim2 (if direction == "custom")
+	hideAnchor = nil, -- Vector2 (if direction == "custom")
 }
-
-local function GetPositionalConfigFromDirection(direction: string)
-	local config = {
-		position = UDim2.fromScale(0, 1),
-		anchor = Vector2.new(),
-	}
-
-	if direction == "down" then
-		config.position = UDim2.new()
-		config.anchor = Vector2.new(0, 1)
-	elseif direction == "left" then
-		config.position = UDim2.new()
-		config.anchor = Vector2.new(1, 0)
-	elseif direction == "right" then
-		config.position = UDim2.fromScale(1, 0)
-		config.anchor = Vector2.new()
-	end
-
-	return config
-end
 
 function Component:init(props)
 	local motorGoal = (props.show and not props.transitionOnMount) and 0 or 1
@@ -90,8 +75,33 @@ function Component:didMount()
 	end
 end
 
+function Component:GetPositionalConfigFromDirection()
+	local direction = self.props.direction
+
+	local config = {
+		position = UDim2.fromScale(0, 1),
+		anchor = Vector2.new(),
+	}
+
+	if direction == "down" then
+		config.position = UDim2.new()
+		config.anchor = Vector2.new(0, 1)
+	elseif direction == "left" then
+		config.position = UDim2.new()
+		config.anchor = Vector2.new(1, 0)
+	elseif direction == "right" then
+		config.position = UDim2.fromScale(1, 0)
+		config.anchor = Vector2.new()
+	elseif direction == "custom" then
+		config.position = self.props.hidePosition
+		config.anchor = self.props.hideAnchor
+	end
+
+	return config
+end
+
 function Component:render()
-	local positional = GetPositionalConfigFromDirection(self.props.direction)
+	local positional = self:GetPositionalConfigFromDirection()
 	local mounted = not (self.props.unmount and self.state.hidden)
 
 	local children = self.props[Roact.Children]
@@ -102,11 +112,11 @@ function Component:render()
 		ZIndex = self.props.zindex,
 
 		AnchorPoint = self.binding:map(function(value)
-			return Vector2.new():Lerp(positional.anchor, value)
+			return self.props.showAnchor:Lerp(positional.anchor, value)
 		end),
 
 		Position = self.binding:map(function(value)
-			return UDim2.new():Lerp(positional.position, value)
+			return self.props.showPosition:Lerp(positional.position, value)
 		end),
 	}, mounted and children)
 end

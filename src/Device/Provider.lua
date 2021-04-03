@@ -1,4 +1,6 @@
 local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local ChatService = game:GetService("Chat")
 
 local Root = script.Parent.Parent
 
@@ -30,10 +32,13 @@ local function determineInputTypeFromEnum(userInput)
 end
 
 function Component:init()
+    local canChat = ChatService:CanUserChatAsync(LocalPlayer.UserId)
+
     self:setState({
         width = 0,
         height = 0,
         input = "touch",
+        topbarInset = canChat and 104 or 60,
     })
 
     self.connection = UserInputService.LastInputTypeChanged:Connect(function(userInput)

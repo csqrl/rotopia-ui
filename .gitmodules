@@ -7,9 +7,6 @@
 [submodule "packages/Llama"]
 	path = packages/Llama
 	url = https://github.com/Frelerik/llama
-[submodule "packages/RoactRouter"]
-	path = packages/RoactRouter
-	url = https://github.com/Reselim/roact-router
 [submodule "packages/InheritedContext"]
 	path = packages/InheritedContext
 	url = https://github.com/ClockworkSquirrel/roact-inheritedcontext
@@ -19,3 +16,6 @@
 [submodule "packages/TestEZ"]
 	path = packages/TestEZ
 	url = https://github.com/Roblox/testez/
+[submodule "packages/RoactRouter"]
+	path = packages/RoactRouter
+	url = https://github.com/ClockworkSquirrel/roact-router
