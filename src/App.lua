@@ -1,4 +1,4 @@
-local Root = script.Parent.Parent
+local Root = script.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
 local RoactRouter = require(Root.Packages.RoactRouter)
@@ -12,7 +12,7 @@ local e = Roact.createElement
 
 return function()
     return e(Theme.Provider, nil, {
-        e(RoactRouter.Router, nil, {
+        Router = e(RoactRouter.Router, nil, {
             Index = e(IndexPage),
             Shop = e(ShopPage),
         }),

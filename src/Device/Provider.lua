@@ -38,6 +38,9 @@ function Component:init()
         width = 0,
         height = 0,
         input = "touch",
+        portrait = false,
+        landscapeWidth = 0,
+        landscapeHeight = 0,
         topbarInset = canChat and 104 or 60,
     })
 
@@ -55,9 +58,14 @@ end
 function Component:render()
     local props = Llama.Dictionary.merge(self.props.props, {
         [Roact.Change.AbsoluteSize] = function(rbx)
+            local isPortrait = rbx.AbsoluteSize.Y >= rbx.AbsoluteSize.X
+
             self:setState({
                 width = rbx.AbsoluteSize.X,
                 height = rbx.AbsoluteSize.Y,
+                portrait = isPortrait,
+                landscapeWidth = isPortrait and rbx.AbsoluteSize.Y or rbx.AbsoluteSize.X,
+                landscapeHeight = isPortrait and rbx.AbsoluteSize.X or rbx.AbsoluteSize.Y,
             })
         end,
     })

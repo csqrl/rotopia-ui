@@ -12,6 +12,11 @@ local function getTextColour(background: Color3, darkThemeText: Color3, lightThe
     return contrastRatio >= 3 and darkThemeText or lightThemeText
 end
 
+-- local function getTextColour(background: Color3, darkThemeText: Color3, lightThemeText: Color3): Color3
+--     local luminance = ColourUtils.GetLuminance(background)
+--     return luminance >= .5 and darkThemeText or lightThemeText
+-- end
+
 local function transformContext(context)
     context.getTextColour = function(background: Color3): Color3
         return getTextColour(

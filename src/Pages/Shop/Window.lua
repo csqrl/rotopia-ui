@@ -2,6 +2,8 @@ local Root = script.Parent.Parent.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
 
+local RootContainer = require(script.Parent.RootContainer)
+
 local e = Roact.createElement
 
 return function()
@@ -12,9 +14,9 @@ return function()
         Size = UDim2.fromScale(1, 1),
     }, {
         SizeConstraint = e("UISizeConstraint", {
-            MaxSize = Vector2.new(900, 400),
+            MaxSize = Vector2.new(900, 500),
         }),
 
-        -- TODO: Content
+        RootContainer = e(RootContainer),
     })
 end

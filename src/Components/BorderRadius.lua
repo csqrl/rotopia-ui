@@ -1,4 +1,4 @@
-local Root = script.Parent.Parent.Parent
+local Root = script.Parent.Parent
 
 local Roact: Roact = require(Root.Packages.Roact)
 local Llama = require(Root.Packages.Llama)

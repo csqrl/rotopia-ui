@@ -6,7 +6,7 @@ local Root = script.Parent
 local Roact: Roact = require(Root.Packages.Roact)
 
 local Device = require(Root.Device)
-local AppComponent = require(Root.Components.App)
+local AppComponent = require(Root.App)
 
 return function()
     local appRootComponent = Roact.createElement(Device.Provider, {

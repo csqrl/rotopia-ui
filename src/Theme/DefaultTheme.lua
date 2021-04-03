@@ -29,6 +29,7 @@ return {
         },
 
         primary = ColourUtils.Hex.fromHex("#FF006A"),
+        primaryText = Color3.new(1, 1, 1),
     },
 
     action = {
