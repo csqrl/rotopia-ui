@@ -11,6 +11,8 @@ local FluidFrame = require(Components.FluidFrame)
 
 local PremiumAd = require(script.Parent.PremiumAd)
 
+local Pages = require(script.Parent.Pages)
+
 local e = Roact.createElement
 
 local Component = Roact.Component:extend("ShopPageRootContainer")
@@ -50,9 +52,9 @@ function Component:render()
                         }
                     }, {
                         Contents = e(FluidFrame, {
-                            spacing = theme.spacing,
-                            direction = isTiny and "y" or "x",
-                            fixedSize = isTiny and 56 or 180,
+                            spacing = isLarge and 0 or theme.spacing,
+                            direction = (isLarge or isTiny) and "y" or "x",
+                            fixedSize = isLarge and 0 or isTiny and 56 or 180,
 
                             fixedItems = not isLarge and {
                                 PremiumAd = e(PremiumAd, {
@@ -61,6 +63,7 @@ function Component:render()
                             },
                         }, {
                             -- TODO: Store pages
+                            CoinsPage = e(Pages.Coins),
                         }),
                     }),
                 }),

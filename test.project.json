@@ -30,6 +30,12 @@
                         },
                         "RoactRouter": {
                             "$path": "packages/RoactRouter/src"
+                        },
+                        "Rodux": {
+                            "$path": "packages/Rodux/src"
+                        },
+                        "RoactRodux": {
+                            "$path": "packages/RoactRodux/src"
                         }
                     }
                 }

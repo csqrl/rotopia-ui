@@ -19,3 +19,9 @@
 [submodule "packages/RoactRouter"]
 	path = packages/RoactRouter
 	url = https://github.com/ClockworkSquirrel/roact-router
+[submodule "packages/Rodux"]
+	path = packages/Rodux
+	url = https://github.com/Roblox/rodux
+[submodule "packages/RoactRodux"]
+	path = packages/RoactRodux
+	url = https://github.com/Roblox/roact-rodux

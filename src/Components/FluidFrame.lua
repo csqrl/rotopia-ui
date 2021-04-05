@@ -38,6 +38,16 @@ function Component:init(props)
     self.fixedRef = Roact.createRef()
 end
 
+function Component:didUpdate(prevProps)
+    local props = self.props
+
+    if prevProps.fixedSize ~= props.fixedSize then
+        self:setState({
+            size = type(props.fixedSize) == "number" and props.fixedSize or 0
+        })
+    end
+end
+
 function Component:getConfig()
     local props, state = self.props, self.state
 
